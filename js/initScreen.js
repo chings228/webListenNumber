@@ -21,22 +21,25 @@ export default class InitScreen{
         console.log("sdfdsfdsf")
 
         var langsdata = [
-["de-DE","German"],
-["bg-BG","Bulgarian"],
-["ca-ES","Catalan (Spain)"],
-["da-DK","Denmark"],
-["en-GB","English (GB)"],
-["en-US","English (US)"],
-["hi-IN","Hindi (India)"],
-["zh-HK","Chinese (Cantonese)"],
+
+
+            ["bg-BG","Bulgarian"],    
+            ["ca-ES","Catalan (Spain)"],   
+            ["zh-HK","Chinese (Cantonese)"],
 ["zh-CN","Chinese (Mandarin)"],
-["th-TH","Thai"],
+            ["da-DK","Denmark"],
+ ["en-GB","English (GB)"],
+["en-US","English (US)"],
 ["fr-FR","French (France)"],
-["ru_RU","Russian"],
+["de-DE","German"],
+["hi-IN","Hindi (India)"],
 ["it-IT","Italian"],
-["es-ES","Spanish"],
 ["jp-JP","Japanese"],
 ["ko-KR","Korean"],
+["ru_RU","Russian"],
+
+["es-ES","Spanish"],
+["th-TH","Thai"],
 ["vi-VN","Vietnamese"]
 
         ]
@@ -62,28 +65,52 @@ export default class InitScreen{
         
 
 
-        var voices = [];
+        // var voices = [];
 
 
-        setTimeout(function(){
+        // setTimeout(function(){
             
-            console.log("show voices")
+        //     console.log("show voices")
 
-            var allvoices = synth.getVoices()
-            allvoices.forEach(element => {
+        //     var allvoices = synth.getVoices()
+        //     allvoices.forEach(element => {
 
-                console.log(element)
+        //         //console.log(element)
                 
-                voices[element.lang] =  element['name']
-            });
+        //         voices[element.lang] =  element['name']
+        //     });
 
-            console.log(voices)
+        //     console.log(voices)
 
-        },10)
+        // },10)
+
+        var selectlangdiv = $("#start_language_option");
 
 
+        var selectlanghtml = "";
 
-        
+        for (const key in langs){
+
+            selectlanghtml += `<option value='${key}'>${langs[key].langInEng}\n`
+
+        }
+
+        selectlangdiv.html(selectlanghtml)
+
+
+        var levels = ["Easy","Medium","Difficult"];
+
+        const selectleveldiv = $("#start_level_option");
+
+        var selectlevelhtml = ""
+
+        levels.forEach(ele=>{
+
+            selectlevelhtml += `<option value='${ele}'>${ele}\n`
+        })
+
+
+        selectleveldiv.html(selectlevelhtml)
 
 
     }

@@ -1,0 +1,36 @@
+
+
+.startTitle{
+
+    font-weight: bold;
+    font-size : 1.5em;
+
+    
+
+}
+
+.startContent{
+
+    margin:5em;
+    padding-top:5em;
+    display:flex;
+    flex-direction: column;
+
+}
+
+
+.start_select{
+
+    margin-bottom:50px;
+  
+
+
+}
+
+#start_play{
+    padding: 1em 3em 1em 3em;
+    font-weight: bold;
+}
+
+
+

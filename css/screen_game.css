@@ -1,0 +1,68 @@
+
+
+
+
+.keyboardContainer{
+
+    width:100%;
+    /* aspect-ratio: 10 / 1; */
+    /* background-color: rgb(17, 107, 107); */
+    margin-top:auto;
+
+}
+
+.keyboardrow{
+    display:flex;
+    list-style: none;
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
+
+
+.keyboard_key{
+
+    width:24%;
+    aspect-ratio : 5 / 3;
+   
+    border-style: solid ;
+
+    font-size:1em;
+    padding:10px;
+    /* background-color: green; */
+    
+
+
+}
+
+.keyboard_key:active{
+    background-color: blue;
+}
+
+.inputContainer{
+
+    /* */
+
+    background-color: antiquewhite;
+    height:calc(68vh + 15px);
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+}
+
+.input_ele{
+    padding:10px;
+
+}
+
+#inputfield{
+    font-weight: bold;
+    font-size:3em;
+    text-align:center;
+    
+}
+
+
+
