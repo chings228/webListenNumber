@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Listening Game</title>
+    <title>Number Listening Game..</title>
 
 
 
@@ -16,16 +16,21 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/v4-shims.min.css">
+  <script src="https://kit.fontawesome.com/a9a02969e1.js" crossorigin="anonymous"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.min.js" ></script>
 
 <link rel = "stylesheet" href = "./css/main.css">
 <link rel = "stylesheet" href = "./css/screen_start.css">
 <link rel = "stylesheet" href = "./css/screen_game.css">
 <link rel = "stylesheet" href = "./css/common.css">
-<script src="./js/app.js"  defer type="module255192"></script>
+<script src="./js/app.js"  defer type="module"></script>
 
 </head>
 
@@ -79,26 +84,40 @@
 
             <div class="playContainer">
 
+                <div class="counterdowndiv"></div>
+
                 <div class = inputContainer>
 
-                    <div class="input_ele" id="inputTopbar">mark 333</div>
-                    <div class="input_ele" id="inputfield">87982</div>
-                    <div class="input_ele" id="inputTimeCounter">Time : 10s</div>
 
+                   
+                    <div class="input_ele" id="inputTopbar"><span>Mark : </span><span id="mark">333</span> </div>
+                    <div class="input_ele" id="inputfield"></div>
+                    
+                    <button id="nextone">Next One</button>
+                    <div class="input_ele" id="inputTimeCounter"><span>Time : </span><span id="timeleft">10</span><span>s</span></div>
+
+                    
+
+                    
                 </div>
+
+
+
+
                 <div class = keyboardContainer>
                     <div class="keyboardrow">
                     <div class="keyboard_key">1</div>
                     <div class="keyboard_key">2</div>
                     <div class="keyboard_key">3</div>
-                    <div class="keyboard_key">Back</div>
+                    <div class="keyboard_key"><i class="fa-solid fa-arrow-left"></i>
+                    </div>
                     </div>
 
                     <div class="keyboardrow">
                     <div class="keyboard_key">4</div>
                     <div class="keyboard_key">5</div>
                     <div class="keyboard_key">6</div>
-                    <div class="keyboard_key">All</div>
+                    <div class="keyboard_key"><i class="fa-solid fa-xmark"></i></div>
                     </div>
                     <div class="keyboardrow">
                     <div class="keyboard_key">7</div>

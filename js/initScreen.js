@@ -1,3 +1,5 @@
+import Commonjs from "./common"
+
 export default class InitScreen{
 
 
@@ -16,9 +18,25 @@ export default class InitScreen{
 
     static #setStartScreen(){
 
+
         console.log("setstartscreen")
 
         console.log("sdfdsfdsf")
+
+
+        console.log("show voices")
+
+        var      avaliableVoices = new Set()
+      var allvoices = synth.getVoices()
+      allvoices.forEach(element => {
+
+          //console.log(`${element.name} ${element.lang}`)
+          
+          avaliableVoices.add(element.lang)
+      });
+
+      console.log(avaliableVoices)
+
 
         var langsdata = [
 
@@ -34,9 +52,9 @@ export default class InitScreen{
 ["de-DE","German"],
 ["hi-IN","Hindi (India)"],
 ["it-IT","Italian"],
-["jp-JP","Japanese"],
+["ja-JP","Japanese"],
 ["ko-KR","Korean"],
-["ru_RU","Russian"],
+["ru-RU","Russian"],
 
 ["es-ES","Spanish"],
 ["th-TH","Thai"],
@@ -55,7 +73,13 @@ export default class InitScreen{
             var data = [];
             data.langInEng = langnameEng
 
-            langs[code] = data
+
+            if (avaliableVoices.has(code)){
+
+                langs[code] = data
+            }
+
+           
 
 
         })
@@ -65,25 +89,6 @@ export default class InitScreen{
         
 
 
-        // var voices = [];
-
-
-        // setTimeout(function(){
-            
-        //     console.log("show voices")
-
-        //     var allvoices = synth.getVoices()
-        //     allvoices.forEach(element => {
-
-        //         //console.log(element)
-                
-        //         voices[element.lang] =  element['name']
-        //     });
-
-        //     console.log(voices)
-
-        // },10)
-
         var selectlangdiv = $("#start_language_option");
 
 
@@ -91,7 +96,14 @@ export default class InitScreen{
 
         for (const key in langs){
 
-            selectlanghtml += `<option value='${key}'>${langs[key].langInEng}\n`
+            selectlanghtml += `<option value='${key}'`
+            
+            
+            if (Commonjs.getCookie("lang") ==  key){
+                 selectlanghtml += " selected "
+            }
+
+            selectlanghtml += `>${langs[key].langInEng}\n`
 
         }
 
@@ -106,7 +118,17 @@ export default class InitScreen{
 
         levels.forEach(ele=>{
 
-            selectlevelhtml += `<option value='${ele}'>${ele}\n`
+            selectlevelhtml += `<option value='${ele}'`
+
+            console.log(`level cookie ${Commonjs.getCookie("level")}`);
+
+            if (Commonjs.getCookie("level") ==  ele){
+
+                selectlevelhtml += " selected "
+               
+            }
+            
+            selectlevelhtml += `>${ele}\n`
         })
 
 
@@ -133,6 +155,8 @@ export default class InitScreen{
         $(".keyboard_key").click(e=>{
 
             console.log(e.currentTarget.innerText)
+            play.handleKeyInput(e.currentTarget.innerText)
+            
         })
 
 

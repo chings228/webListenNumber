@@ -17,15 +17,18 @@ html{
 
 .gameContainer{
 
-    height:90vh;
+    height:80vh;
     
    
     /* height:600px; */
     aspect-ratio: 1/2;
-    margin:20px;
+    /* margin:20px; */
     padding:0px;
     background-color: beige;
-    margin:auto;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10vh;
+    margin-bottom:10vh;
 
 }
 
@@ -39,6 +42,8 @@ html{
     position:relative;
     /* display:flex; */
     display : none;
+    flex-direction: column;
+    
 }
 
 

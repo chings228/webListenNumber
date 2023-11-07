@@ -1,15 +1,15 @@
 
 
-import ReadNumber from "./readnumber"
 
 import InitScreen from "./initScreen"
 import Play from "./play"
+import Commonjs from "./common"
+
+import ReadNumber from "./readnumber"
 
 
 
-var readnumber
-
- window.synth = window.speechSynthesis
+ //comment
 
  var playlang = "en-US"
  var playlevel = "easy"
@@ -17,42 +17,70 @@ var readnumber
  var isGameStart = false;
 
 
+ window.play = new Play()
+
+ window.synth = window.speechSynthesis
+
+
+
 $(function(){
 
+    
+
     console.log("jq start")
+    console.log("xxxxxxx voice change")
 
 
-    readnumber = new ReadNumber()
+
+        console.log("safari")
+
+        setTimeout(function(){
+            initGame()
+        },500)
+
+
+    
+
+
+    
+
 
     let vh = window.innerHeight * 0.01;
     // Then we set the value in the --vh custom property to the root of the document
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-    InitScreen.setInitScreen()
 
-    addPlayEvent()
    
 
-    $("#start").click(()=>{
-        //appReadNumber()
 
-        appReadNumberCallbacka()
-
-       
-    })
 
 })
+
+
+function initGame(){
+    InitScreen.setInitScreen()
+    
+       
+    
+    addPlayEvent()
+
+}
 
 
 
 function addPlayEvent(){
 
+
+    
+
     $("#start_play").click(()=>{
+
+
 
         console.log("start play")
 
         $(".startContainer").css("display","none")
-        $(".gameContainer").css("display","block")
+        $(".playContainer").css("display","flex")
 
          playlang = $("#start_language_option").find(":selected").val()
          playlevel = $("#start_level_option").find(":selected").val()
@@ -63,36 +91,19 @@ function addPlayEvent(){
         var option = {}
 
         option.lang = playlang
-        option.level = playlevel
+        option.level = playlevel.toLowerCase()
 
-        var play = Play(option)
+        Commonjs.setCookie("level",playlevel,14);
+        Commonjs.setCookie("lang",playlang,14);
+
+        console.log(option)
+
+        play.startGame(option)
 
 
     })
 }
 
 
-function appReadNumber(){
-
-    console.log("btn read number")
-
-    readnumber.read("11111")
-
-
-
-}
-
-function appReadNumberCallbacka(){
-
-    readnumber.readCallback("111",(isFinished)=>{
-        console.log(isFinished)
-    });
-
-}
-
-// function callback(isFinished){
-
-//     console.log(isFinished)
-// }
 
 

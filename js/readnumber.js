@@ -7,36 +7,51 @@ export default class ReadNumber{
     callback 
      that = this
 
-    constructor(){
+     lang
+
+    constructor(lang){
 
         console.log("ReadNumber")
+        this.lang = lang
     }
 
 
-    read(string){
+    // read(string){
 
 
-        console.log(`read ${string}`)
-        const synth = window.speechSynthesis
+    //     console.log(`read ${string}`)
+    //     const synth = window.speechSynthesis
 
-        const utterance = new SpeechSynthesisUtterance(string)
+    //     const utterance = new SpeechSynthesisUtterance(string)
 
-        synth.speak(utterance)
-    }
+    //     synth.speak(utterance)
+    // }
 
 
     readCallback(string,callback){
 
         this.callback = callback
 
-
+        console.log(`read lang ${this.lang}`)
         const utterance = new SpeechSynthesisUtterance(string)
-        utterance.lang = 'th-TH'
+        utterance.lang = this.lang
 
         const that  = this
+
+        console.log("new console")
         utterance.addEventListener("end",e=>{
 
             that.endReading(true)
+        })
+
+       
+
+        utterance.addEventListener("error",e=>{
+            console.log(e)
+        })
+
+        utterance.addEventListener("start",e=>{
+            console.log("start")
         })
 
         synth.speak(utterance)
@@ -47,7 +62,7 @@ export default class ReadNumber{
 
     endReading(e){
 
-        console.log(e)
+        //console.log(e)
         this.callback(e)
     }
 
