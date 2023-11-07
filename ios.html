@@ -4,8 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ios</title>
+
+
+
+
+<style>
+
+
+
+#main{
+    background-color:yellow;
+   /* min-height:100vh; */
+
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:20px;
+    margin : 0 auto;
+    max-width:400px;
+    
+}
+
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+
+
+</style>
+
+
+
+
 </head>
+
+
+
+
 <body>
+
+    <div id="main">
+
+        <div>aaaaa</div>
+
+        <div id="bheight"></div>
+
+
+        <div>bbbb</div>
+    </div>
+
+
     
 </body>
 </html>
+
+
+<script>
+
+
+var maindiv = document.getElementById("main")
+
+
+
+maindiv.style.minHeight = `${window.innerHeight}px`
+
+
+        
+</script>
